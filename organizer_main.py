@@ -1,3 +1,5 @@
+import time
+zadanie = {}
 def main_menu():
     Loop = True
 
@@ -37,9 +39,18 @@ def event_list_menu():
         elif(opcja == "3"):
             print("Usuń zadanie")
         elif(opcja == "4"):
+            Loop = False
             main_menu()
         else:
             print("Brak takiej opcji")
 
+def event_add():
+    title_event = input("Tytuł: ")
+    time_update = input(time.strftime('%Y%m%d_%H:%M:%S'))
+    data_event = input("Data zdarzenia w formacie YYYYMMDD: ")
+    timeup_event = input("Godzina rozpoczęcia w formacie HHMM: ")
+    timeto_event = input("Godzina zakończenia w formacie HHMM: ")
+    timereminder_event = input("Przypomnienie w formacie YYYYMMDDHHMM: ")
+    describe_event = input("Opis wydarzenia: ")
 
 main_menu()
