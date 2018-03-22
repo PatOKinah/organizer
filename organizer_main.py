@@ -1,5 +1,7 @@
 import time
 zadanie = {}
+
+
 def main_menu():
     Loop = True
 
@@ -15,6 +17,8 @@ def main_menu():
             event_list_menu()
         elif(opcja == "2"):
             print("Konfiguruj profil")
+            profile_config('key_profile_contact','key_profile_file')
+            print(profil)
         elif(opcja == "3"):
             Loop = False
             exit()
@@ -52,5 +56,14 @@ def event_add():
     timeto_event = input("Godzina zakończenia w formacie HHMM: ")
     timereminder_event = input("Przypomnienie w formacie YYYYMMDDHHMM: ")
     describe_event = input("Opis wydarzenia: ")
+
+def profile_config(key_profile_contact,key_profile_file):
+    global profil
+    profile_contact = input("Podaj adres e-mail: ")
+    profile_file = input("Podaj nazwę pliku: ")
+    profil = {'key_profile_contact':profile_contact, 'key_profile_file':profile_file}
+    profil['key_profile_contact'] = profile_contact
+    profil['key_profile_file'] = profile_file
+    return profil
 
 main_menu()
