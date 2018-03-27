@@ -1,5 +1,5 @@
 import time
-zadanie = {}
+import random
 
 
 def main_menu():
@@ -38,8 +38,10 @@ def event_list_menu():
         opcja = input("Wybierz opcję: ")
         if(opcja == "1"):
             print("Zadania bieżące")
+            list_of_event(zadanie)
         elif(opcja == "2"):
             print("Dodaj zadanie")
+            event_add()
         elif(opcja == "3"):
             print("Usuń zadanie")
         elif(opcja == "4"):
@@ -49,6 +51,8 @@ def event_list_menu():
             print("Brak takiej opcji")
 
 def event_add():
+    global zadanie
+    event_id = random.randrange(1,1000,1)
     title_event = input("Tytuł: ")
     time_update = input(time.strftime('%Y%m%d_%H:%M:%S'))
     data_event = input("Data zdarzenia w formacie YYYYMMDD: ")
@@ -56,6 +60,10 @@ def event_add():
     timeto_event = input("Godzina zakończenia w formacie HHMM: ")
     timereminder_event = input("Przypomnienie w formacie YYYYMMDDHHMM: ")
     describe_event = input("Opis wydarzenia: ")
+    zadanie = {'id':event_id,'dodano':time_update,'tytuł':title_event,'data zadania':data_event,'czas rozpoczęcia':timeup_event,'czas zakończenia':timeto_event,'przypomnienie':timereminder_event,'opis':describe_event}
+    return zadanie
+
+
 
 def profile_config(key_profile_contact,key_profile_file):
     global profil
@@ -65,5 +73,14 @@ def profile_config(key_profile_contact,key_profile_file):
     profil['key_profile_contact'] = profile_contact
     profil['key_profile_file'] = profile_file
     return profil
+
+def list_of_event(zadanie):
+    print(zadanie)
+    for k,v in zadanie.items():
+        print(k + '     ' + str(v))
+
+
+
+
 
 main_menu()
