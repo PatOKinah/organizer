@@ -1,6 +1,8 @@
 import time
 import random
 
+global lista_zadan
+lista_zadan = []
 
 def main_menu():
     Loop = True
@@ -61,6 +63,7 @@ def event_add():
     timereminder_event = input("Przypomnienie w formacie YYYYMMDDHHMM: ")
     describe_event = input("Opis wydarzenia: ")
     zadanie = {'id':event_id,'dodano':time_update,'tytuł':title_event,'data zadania':data_event,'czas rozpoczęcia':timeup_event,'czas zakończenia':timeto_event,'przypomnienie':timereminder_event,'opis':describe_event}
+    lista_zadan.append(zadanie)
     return zadanie
 
 
@@ -76,8 +79,12 @@ def profile_config(key_profile_contact,key_profile_file):
 
 def list_of_event(zadanie):
     print(zadanie)
-    for k,v in zadanie.items():
-        print(k + '     ' + str(v))
+    print(lista_zadan)
+    #for k,v in zadanie.items():
+    #    print(k + '     ' + str(v))
+    for i in lista_zadan:
+        for k,v in zadanie.items():
+            print(k + '     ' + str(v))
 
 
 
